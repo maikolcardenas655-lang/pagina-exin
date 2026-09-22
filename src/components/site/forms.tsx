@@ -24,7 +24,7 @@ export function Field({
   required?: boolean;
   placeholder?: string;
   textarea?: boolean;
-  defaultValue?: string;
+  defaultValue?: string | undefined;
   children?: ReactNode;
 }) {
   const id = `f-${name}`;
@@ -142,7 +142,7 @@ const CONTACT_PREF = [
   { value: "correo", label: "Correo" },
 ];
 
-export function ContactForm({ propertyCode, source = "contacto" }: { propertyCode?: string; source?: "contacto" | "propiedad" }) {
+export function ContactForm({ propertyCode, source = "contacto" }: { propertyCode?: string | undefined; source?: "contacto" | "propiedad" }) {
   const s = useSubmit((fd) =>
     submitContact({
       data: {
@@ -177,7 +177,7 @@ export function ContactForm({ propertyCode, source = "contacto" }: { propertyCod
   );
 }
 
-export function CreditForm({ propertyCode }: { propertyCode?: string }) {
+export function CreditForm({ propertyCode }: { propertyCode?: string | undefined }) {
   const s = useSubmit((fd) =>
     submitCreditApplication({
       data: {
@@ -222,7 +222,7 @@ export function CreditForm({ propertyCode }: { propertyCode?: string }) {
   );
 }
 
-export function AppointmentForm({ propertyCode }: { propertyCode?: string }) {
+export function AppointmentForm({ propertyCode }: { propertyCode?: string | undefined }) {
   const s = useSubmit((fd) => {
     const when = str(fd, "scheduled_at");
     return submitAppointment({
