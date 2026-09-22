@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as CreditosRouteImport } from './routes/creditos'
+import { Route as PrivacidadRouteImport } from './routes/privacidad'
+import { Route as TratamientoDeDatosRouteImport } from './routes/tratamiento-de-datos'
+import { Route as VendeTuPropiedadRouteImport } from './routes/vende-tu-propiedad'
+import { Route as PropiedadesIndexRouteImport } from './routes/propiedades.index'
+import { Route as PropiedadesSlugRouteImport } from './routes/propiedades.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreditosRoute = CreditosRouteImport.update({
+  id: '/creditos',
+  path: '/creditos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadRoute = PrivacidadRouteImport.update({
+  id: '/privacidad',
+  path: '/privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TratamientoDeDatosRoute = TratamientoDeDatosRouteImport.update({
+  id: '/tratamiento-de-datos',
+  path: '/tratamiento-de-datos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VendeTuPropiedadRoute = VendeTuPropiedadRouteImport.update({
+  id: '/vende-tu-propiedad',
+  path: '/vende-tu-propiedad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PropiedadesIndexRoute = PropiedadesIndexRouteImport.update({
+  id: '/propiedades/',
+  path: '/propiedades/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PropiedadesSlugRoute = PropiedadesSlugRouteImport.update({
+  id: '/propiedades/$slug',
+  path: '/propiedades/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/creditos': typeof CreditosRoute
+  '/privacidad': typeof PrivacidadRoute
+  '/tratamiento-de-datos': typeof TratamientoDeDatosRoute
+  '/vende-tu-propiedad': typeof VendeTuPropiedadRoute
+  '/propiedades/$slug': typeof PropiedadesSlugRoute
+  '/propiedades/': typeof PropiedadesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/creditos': typeof CreditosRoute
+  '/privacidad': typeof PrivacidadRoute
+  '/tratamiento-de-datos': typeof TratamientoDeDatosRoute
+  '/vende-tu-propiedad': typeof VendeTuPropiedadRoute
+  '/propiedades/$slug': typeof PropiedadesSlugRoute
+  '/propiedades': typeof PropiedadesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/creditos': typeof CreditosRoute
+  '/privacidad': typeof PrivacidadRoute
+  '/tratamiento-de-datos': typeof TratamientoDeDatosRoute
+  '/vende-tu-propiedad': typeof VendeTuPropiedadRoute
+  '/propiedades/$slug': typeof PropiedadesSlugRoute
+  '/propiedades/': typeof PropiedadesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contacto'
+    | '/creditos'
+    | '/privacidad'
+    | '/tratamiento-de-datos'
+    | '/vende-tu-propiedad'
+    | '/propiedades/$slug'
+    | '/propiedades/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contacto'
+    | '/creditos'
+    | '/privacidad'
+    | '/tratamiento-de-datos'
+    | '/vende-tu-propiedad'
+    | '/propiedades/$slug'
+    | '/propiedades'
+  id:
+    | '__root__'
+    | '/'
+    | '/contacto'
+    | '/creditos'
+    | '/privacidad'
+    | '/tratamiento-de-datos'
+    | '/vende-tu-propiedad'
+    | '/propiedades/$slug'
+    | '/propiedades/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactoRoute: typeof ContactoRoute
+  CreditosRoute: typeof CreditosRoute
+  PrivacidadRoute: typeof PrivacidadRoute
+  TratamientoDeDatosRoute: typeof TratamientoDeDatosRoute
+  VendeTuPropiedadRoute: typeof VendeTuPropiedadRoute
+  PropiedadesSlugRoute: typeof PropiedadesSlugRoute
+  PropiedadesIndexRoute: typeof PropiedadesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creditos': {
+      id: '/creditos'
+      path: '/creditos'
+      fullPath: '/creditos'
+      preLoaderRoute: typeof CreditosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidad': {
+      id: '/privacidad'
+      path: '/privacidad'
+      fullPath: '/privacidad'
+      preLoaderRoute: typeof PrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tratamiento-de-datos': {
+      id: '/tratamiento-de-datos'
+      path: '/tratamiento-de-datos'
+      fullPath: '/tratamiento-de-datos'
+      preLoaderRoute: typeof TratamientoDeDatosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vende-tu-propiedad': {
+      id: '/vende-tu-propiedad'
+      path: '/vende-tu-propiedad'
+      fullPath: '/vende-tu-propiedad'
+      preLoaderRoute: typeof VendeTuPropiedadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/propiedades/': {
+      id: '/propiedades/'
+      path: '/propiedades'
+      fullPath: '/propiedades/'
+      preLoaderRoute: typeof PropiedadesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/propiedades/$slug': {
+      id: '/propiedades/$slug'
+      path: '/propiedades/$slug'
+      fullPath: '/propiedades/$slug'
+      preLoaderRoute: typeof PropiedadesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactoRoute: ContactoRoute,
+  CreditosRoute: CreditosRoute,
+  PrivacidadRoute: PrivacidadRoute,
+  TratamientoDeDatosRoute: TratamientoDeDatosRoute,
+  VendeTuPropiedadRoute: VendeTuPropiedadRoute,
+  PropiedadesSlugRoute: PropiedadesSlugRoute,
+  PropiedadesIndexRoute: PropiedadesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
